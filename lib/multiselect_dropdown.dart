@@ -51,6 +51,7 @@ class MultiSelectDropDown<T> extends StatefulWidget {
 
   // selected option
   final Icon? selectedOptionIcon;
+  final Icon? optionIcon;
   final Color? selectedOptionTextColor;
   final Color? selectedOptionBackgroundColor;
   final Widget Function(BuildContext, ValueItem<T>)? selectedItemBuilder;
@@ -226,6 +227,7 @@ class MultiSelectDropDown<T> extends StatefulWidget {
       this.alwaysShowOptionIcon = false,
       this.optionTextStyle,
       this.selectedOptionIcon = const Icon(Icons.check),
+      this.optionIcon,
       this.selectedOptionBackgroundColor,
       this.optionsBackgroundColor,
       this.fieldBackgroundColor = Colors.white,
@@ -282,6 +284,7 @@ class MultiSelectDropDown<T> extends StatefulWidget {
       this.alwaysShowOptionIcon = false,
       this.optionTextStyle,
       this.selectedOptionIcon = const Icon(Icons.check),
+      this.optionIcon,
       this.selectedOptionBackgroundColor,
       this.optionsBackgroundColor,
       this.fieldBackgroundColor = Colors.white,
@@ -715,7 +718,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
       return null;
     }
 
-    final Icon icon = widget.selectedOptionIcon ??
+    final Icon icon = widget.optionIcon ??
         Icon(
           Icons.circle_outlined,
           color: widget.optionTextStyle?.color ?? Colors.grey,
