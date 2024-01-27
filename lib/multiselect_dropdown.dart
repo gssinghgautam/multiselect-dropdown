@@ -944,7 +944,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
 
           widget.onOptionSelected?.call(_selectedOptions);
         },
-        trailing: _getSelectedIcon(isSelected, primaryColor));
+        trailing: !_disabledOptions.contains(option) ? _getSelectedIcon(isSelected, primaryColor) : const SizedBox.shrink());
   }
 
   /// Make a request to the provided url.
