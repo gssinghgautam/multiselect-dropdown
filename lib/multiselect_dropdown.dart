@@ -54,6 +54,7 @@ class MultiSelectDropDown<T> extends StatefulWidget {
   final Icon? optionIcon;
   final Color? selectedOptionTextColor;
   final Color? selectedOptionBackgroundColor;
+  final Color? disabledOptionBackgroundColor;
   final Widget Function(BuildContext, ValueItem<T>)? selectedItemBuilder;
 
   // chip configuration
@@ -229,6 +230,7 @@ class MultiSelectDropDown<T> extends StatefulWidget {
       this.selectedOptionIcon = const Icon(Icons.check),
       this.optionIcon,
       this.selectedOptionBackgroundColor,
+      this.disabledOptionBackgroundColor,
       this.optionsBackgroundColor,
       this.fieldBackgroundColor = Colors.white,
       this.dropdownHeight = 200,
@@ -286,6 +288,7 @@ class MultiSelectDropDown<T> extends StatefulWidget {
       this.selectedOptionIcon = const Icon(Icons.check),
       this.optionIcon,
       this.selectedOptionBackgroundColor,
+        this.disabledOptionBackgroundColor,
       this.optionsBackgroundColor,
       this.fieldBackgroundColor = Colors.white,
       this.dropdownHeight = 200,
@@ -896,7 +899,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
         selected: isSelected,
         autofocus: true,
         dense: true,
-        tileColor: widget.optionsBackgroundColor ?? Colors.white,
+        tileColor: (_disabledOptions.contains(option) ? widget.disabledOptionBackgroundColor : widget.optionsBackgroundColor) ?? Colors.white,
         selectedTileColor:
             widget.selectedOptionBackgroundColor ?? Colors.grey.shade200,
         enabled: !_disabledOptions.contains(option),
