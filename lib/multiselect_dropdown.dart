@@ -717,7 +717,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
 
     final Icon icon = widget.selectedOptionIcon ??
         Icon(
-          Icons.check,
+          Icons.circle_outlined,
           color: widget.optionTextStyle?.color ?? Colors.grey,
         );
 
